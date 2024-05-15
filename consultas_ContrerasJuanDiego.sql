@@ -87,8 +87,7 @@ SELECT * FROM equipamiento;
 
 -- 8. Consulta de Eventos Celebrados en Complejos Deportivos 
 -- con Jefe de Organización Específico.
--- Esta consulta
-
+-- Esta consulta halla los eventos celebrados en complejos por Jefe = 'Jose Hernandez'
 SELECT 
 	e.id_evento AS Evento_ID,
     e.nombre AS NombreEvento,
@@ -105,6 +104,12 @@ SELECT * FROM jefes;
 
 -- 9. Consulta de Complejos Polideportivos sin Eventos Celebrados.
 -- Esta consulta
+
+SELECT
+	e.id_complejo as complejoPolideportivo_ID
+FROM eventos_complejo_poli ecp
+JOIN eventos e ON e.id_evento = ecp_id_evento
+WHERE id_evento IS NULL;
 
 SELECT * FROM complejo_polideportivo;
 SELECT * FROM evento_complejo_poli;
